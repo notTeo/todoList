@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import "./styles/App.css"
-import "./components/RenderingTodos"
-import "./components/TodoInput"
 import RenderingTodos from './components/RenderingTodos';
 import TodoInput from './components/TodoInput';
 
 
 function App() {
   const [backendData, setBackendData] = useState({ todos: [] });
-
-
+  
   useEffect(() => {
-    fetch("/api")
+    fetch("/api/todos")
       .then(response => response.json())
       .then(data => {
         setBackendData(data);
@@ -23,8 +20,8 @@ function App() {
 
   return (
     <div>
-      <RenderingTodos/>
       <TodoInput/>
+      <RenderingTodos backendData={backendData}/>
     </div>
   );
 }

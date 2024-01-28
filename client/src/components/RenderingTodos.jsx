@@ -4,8 +4,8 @@ function RenderingTodos(props) {
   return (
     <div>
       <ul>
-        {props.backendData.todos.map((todo, i) => (
-          <li key={i}>{todo}</li>
+        {props.backendData.todos.map((todo) => (
+          <li key={todo.id}>{todo.text}</li>
         ))}
       </ul>
     </div>

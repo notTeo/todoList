@@ -1,11 +1,25 @@
-import React from 'react';
+import React from "react";
 
 function RenderingTodos(props) {
+  function handleDelete(todoId) {
+    fetch("/api/todos/" + todoId, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+        props.fetchData();
+      });
+  }
+
   return (
     <div>
       <ul>
         {props.backendData.todos.map((todo) => (
-          <li key={todo.id}>{todo.text}</li>
+          <div className="todoContainer">
+            <li key={todo.id}>{todo.text}</li>
+            <button onClick={() => handleDelete(todo.id)}>Del</button>
+          </div>
         ))}
       </ul>
     </div>

@@ -8,20 +8,21 @@ function App() {
   const [backendData, setBackendData] = useState({ todos: [] });
   
   function fetchData(){
-    console.log(backendData)
+
     fetch("/api/todos")
       .then(response => response.json())
       .then(data => {
-        setBackendData(data);
+        setBackendData(data);    
       })
-      .catch(error => {
-        console.error('Error fetching data:', error);
+      .catch(err => {
+        console.error('Error fetching data:', err);
       });
       
   }
 
   useEffect(() => {
     fetchData();
+    console.log(backendData);
   }, []);
 
 

@@ -12,31 +12,41 @@ router.get("/", (req, res) => {
   res.send({ todos });
 });
 
-router.get("/:id", (req, res) => {
-  const ID = req.params.id;
-  const foundTodo = todos.find((todo) => todo.id === ID);
-  if (foundTodo) {
-    res.json(foundTodo);
-  } else {
-    res.status(404).json({ message: "Todo not found" });
-  }
-});
-
 router.post("/", (req, res) => {
-  console.log(req.body);
   const todo = req.body;
   todos.push(todo);
-  res.json({ message: "Todo was craeted" });
+  res.json({ message: "Todo was created", new_todo: todo, all_todos: todos });
+});
+
+router.patch("/:id", (req, res) => {
+  const ID = req.params.id;
+  const todoToUpdate = todos.find((todo) => todo.id === ID);
+
+  if (!todoToUpdate) {
+    return res.status(404).json({ error: "Todo not found" });
+  }
+
+  todoToUpdate.completed = req.body.completed;
+
+  res.json({
+    message: "Todo was Updated",
+    updated_todo: todoToUpdate,
+    all_todos: todos,
+  });
 });
 
 router.delete("/:id", (req, res) => {
   const ID = req.params.id;
   const todoToDelete = todos.find((todo) => todo.id === ID);
+  const updatedTodos = todos.filter((todo) => todo.id !== ID);
   const index = todos.indexOf(todoToDelete);
   todos.splice(index, 1);
-  res.json({ message: "Todo was deleted" });
-});
 
-  
+  res.json({
+    message: "Todo was Deleted",
+    deleted_todo: todoToDelete,
+    all_todos: updatedTodos,
+  });
+});
 
 module.exports = router;

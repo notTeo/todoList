@@ -25,6 +25,14 @@
     word-wrap: normal;
 }
 
+.completed{
+    text-decoration: line-through;
+}
+
+.uncompleted{
+    text-decoration: none;
+}
+
 .buttons{
     width: 40%;
     display: flex;

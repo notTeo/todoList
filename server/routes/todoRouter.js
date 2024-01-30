@@ -15,7 +15,12 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
   const todo = req.body;
   todos.push(todo);
-  res.json({ message: "Todo was created", new_todo: todo, all_todos: todos });
+
+  res.json({
+    message: "Todo was created",
+    new_todo: todo,
+    all_todos: todos,
+  });
 });
 
 router.patch("/:id", (req, res) => {

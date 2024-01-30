@@ -28,7 +28,7 @@ function App() {
   
 
   return (
-    <div>
+    <div className='App'>
       <TodoInput fetchData={fetchData}/>
       <RenderingTodos backendData={backendData} fetchData={fetchData}/>
     </div>

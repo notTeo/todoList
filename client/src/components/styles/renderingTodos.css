@@ -1,0 +1,45 @@
+.mainContainer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: large;
+}
+
+.todoList{
+    list-style: none;
+    width: 40rem;
+}
+
+.todoContainer{
+    width: 100%;
+    min-width: 330px;
+    margin-top: 1rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    background-color: aqua;
+}
+
+.text{
+    min-width: 60%;
+    word-wrap: normal;
+}
+
+.buttons{
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+}
+
+.buttons button{
+    margin: 0px 0.1rem;
+    padding: 10px;
+    cursor: pointer;
+    background-color: aquamarine;
+    border: none;
+}.buttons button:hover{
+    background-color: antiquewhite;
+    transition: 0.7s;
+}

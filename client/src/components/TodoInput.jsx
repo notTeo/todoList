@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./styles/todoInput.css"
 
 function TodoInput({ fetchData }) {
   const [inputValue, setInputValue] = useState("");
@@ -15,7 +16,7 @@ function TodoInput({ fetchData }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ text: inputValue, id: ID, state: "uncompleted" }),
+      body: JSON.stringify({ text: inputValue, id: ID, completed: false }),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -27,9 +28,9 @@ function TodoInput({ fetchData }) {
 
   return (
     <div className="mainContainer">
-      <div>
-        <input value={inputValue} onChange={handleChange} type="text" />
-        <button onClick={handleClick}>Add Todo</button>
+      <div className="inputsContainer">
+        <input className="input" value={inputValue} onChange={handleChange} type="text" />
+        <button className="addButton" onClick={handleClick}>➕</button>
       </div>
     </div>
   );

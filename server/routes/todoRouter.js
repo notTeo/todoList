@@ -26,7 +26,7 @@ router.post("/", (req, res) => {
   console.log(req.body);
   const todo = req.body;
   todos.push(todo);
-  res.json({ message: "Todo was created" });
+  res.json({ message: "Todo was craeted" });
 });
 
 router.delete("/:id", (req, res) => {
@@ -36,5 +36,7 @@ router.delete("/:id", (req, res) => {
   todos.splice(index, 1);
   res.json({ message: "Todo was deleted" });
 });
+
+  
 
 module.exports = router;

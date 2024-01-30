@@ -1,4 +1,5 @@
 import React from "react";
+import "./styles/renderingTodos.css"
 
 function RenderingTodos(props) {
   function handleDelete(todoId) {
@@ -13,12 +14,16 @@ function RenderingTodos(props) {
   }
 
   return (
-    <div>
-      <ul>
+    <div className="mainContainer">
+      <ul className="todoList">
         {props.backendData.todos.map((todo) => (
-          <div className="todoContainer">
-            <li key={todo.id}>{todo.text}</li>
-            <button onClick={() => handleDelete(todo.id)}>Del</button>
+          <div className="todoContainer" key={todo.id}>
+            <li className="text">{todo.text}</li>
+            <div className="buttons">
+              <button onClick={() => handleDelete(todo.id)}>🗑️</button>
+              <button>✅</button>
+            </div>
+
           </div>
         ))}
       </ul>

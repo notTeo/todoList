@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./styles/todoInput.css"
+import "./TodoInput.css"
 
 function TodoInput({ fetchData }) {
   const [inputValue, setInputValue] = useState("");

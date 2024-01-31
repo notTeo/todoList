@@ -1,13 +1,9 @@
 import React, { useState, useRef } from "react";
-import "./styles/renderingTodos.css";
+import "./RenderingTodos.css";
 
 function RenderingTodos(props) {
   const [newState, setNewState] = useState(true);
   const [updatedTodoId, setUpdatedTodoId] = useState(null);
-
-  const style = {
-    fontSize: 'larger',
-  }
 
   function handleDelete(todoId) {
     fetch("/api/todos/" + todoId, {
